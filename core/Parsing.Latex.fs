@@ -14,8 +14,7 @@ let private markdown = Parsing.Markdown.markdown
 let private newlineRegex: Regex =
     Regex
         ( @"(\\(\\\*?|hline|newline|break|linebreak)(\[.*?\])?(\{.*?\})?\s*$)"
-        + @"|  $|"
-        + @"|\. *$|"
+        + @"|  $|\. *$|"
         + @"([^\\]%)"
         )
 
