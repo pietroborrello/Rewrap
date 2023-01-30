@@ -27,3 +27,15 @@ jobs:
       uses: GabrielBB/xvfb-action@v1.2
       with:
         run: ./do build test --production
+    
+    - name: Create Package
+      uses: GabrielBB/xvfb-action@v1.2
+      with:
+        run: ./do package --production
+
+    - name: Upload the artifacts
+      uses: skx/github-action-publish-binaries@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: '.obj/Rewrap-VSCode.vsix'
